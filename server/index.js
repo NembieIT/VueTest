@@ -4,6 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const userRouter = require('./routes/userRoutes');
 const contactRouter = require('./routes/contactRoutes');
+const connectDB = require('./config/db');
 
 // Deploy web fullstack
 const path = require('path');
@@ -29,12 +30,10 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 // 
-
-mongoose.connect(process.env.MONGODB_CONNECT)
-    .then(() => {
-        console.log("Connected to MongoDB");
-    })
 const PORT = process.env.BACKEND_PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Listen at port ${PORT}`);
-})
+connectDB()
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`Listen at port ${PORT}`);
+        })
+    })
