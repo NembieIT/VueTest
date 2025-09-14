@@ -72,7 +72,7 @@ const validateMessages = {
     },
 };
 const onFinish = async (values) => {
-    const res = await axios.post(`${import.meta.env.VITE_BACKEND}/register`, values);
+    const res = await axios.post(`${import.meta.env.VITE_ENV!=='production' ? (import.meta.env.VITE_CONTACT_BACKEND) : ("")}/register`, values);
     if(res.data.EC==0){
         toast.success("Đăng ký thành công !", {
             autoClose:1500,

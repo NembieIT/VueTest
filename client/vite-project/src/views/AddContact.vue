@@ -92,7 +92,7 @@ export default {
         },
         save() {
             if (this.validate()) {
-                this.axios.post(`${import.meta.env.VITE_CONTACT_BACKEND}/add`, this.formdata)
+                this.axios.post(`${import.meta.env.VITE_ENV!=='production' ? (import.meta.env.VITE_CONTACT_BACKEND) : ("")}/add`, this.formdata)
                     .then((res) => {
                         console.log(res.data.EC);
                         if (res.data.EC == 0) {

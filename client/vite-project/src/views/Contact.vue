@@ -69,7 +69,7 @@
     async function getData() {
         try {
             userState.loading=true;
-            const data = await axios.get(import.meta.env.VITE_CONTACT_BACKEND);
+            const data = await axios.get(`${import.meta.env.VITE_ENV!=='production' ? (import.meta.env.VITE_CONTACT_BACKEND) : ("")}`);
             userState.loading = false;
             contactList.value = data.data.contacts;
         } catch (err) {
@@ -82,7 +82,7 @@
     async function handleOk(id) {
         open = false;
         try {
-            const res = await axios.delete(`${import.meta.env.VITE_CONTACT_BACKEND}/${id}`);
+            const res = await axios.delete(`${import.meta.env.VITE_ENV!=='production' ? (import.meta.env.VITE_CONTACT_BACKEND) : ("")}/${id}`);
             if (res.data.EC == 0) {
                 toast.success("Xoá liên hệ thành công !", {
                     autoClose: 1500,

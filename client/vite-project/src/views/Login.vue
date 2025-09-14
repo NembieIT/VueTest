@@ -59,7 +59,7 @@ const formState = reactive({
 });
 const onFinish = async (values) => {
     try {
-        const res = await axios.post(`${import.meta.env.VITE_BACKEND}/login`, values);
+        const res = await axios.post(`${import.meta.env.VITE_ENV!=='production' ? (import.meta.env.VITE_CONTACT_BACKEND) : ("")}/login`, values);
         if (res.data.EC == 0) {
             toast.success("Đăng nhập thành công", {
                 autoClose: 1500,

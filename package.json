@@ -1,0 +1,21 @@
+{
+  "name": "vuejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build" : "npm install --prefix server && npm install --prefix client/vite-project && npm run build --prefix client/vite-project",
+    "start" : "npm run start --prefix server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NembieIT/VueTest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NembieIT/VueTest/issues"
+  },
+  "homepage": "https://github.com/NembieIT/VueTest#readme",
+  "description": ""
+}
