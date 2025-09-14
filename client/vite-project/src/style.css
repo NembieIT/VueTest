@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@theme{
+    --font-text: "Montserrat", "sans-serif";
+    --font-text1: "Winky Rough", "sans-serif";
+    --font-text2: "Asimovian", "sans-serif";
+}
+input{
+    outline:none;
+}
